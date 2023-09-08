@@ -4,24 +4,19 @@
 //
 //  Created by Ivan Mathy on 9/7/23.
 //
-//
-//  BoundsVisualizer.swift
-//  Guesstimates
-//
-//  Created by Ivan Mathy on 9/7/23.
-//
+
 
 import Foundation
 import RealityKit
 
-class BoundsVisualizer: Entity {
+open class BoundsVisualizer: Entity {
   
   let bounds: SIMD3<Float>
   let size: Float
   let length: Float
   let material: Material
   
-  @MainActor init(bounds: SIMD3<Float>, size: Float = 0.025, length: Float = 0.1, material: Material = SimpleMaterial()) {
+  @MainActor public init(bounds: SIMD3<Float>, size: Float = 0.025, length: Float = 0.1, material: Material = SimpleMaterial()) {
     self.bounds = bounds
     self.size = size
     self.length = length
@@ -59,7 +54,7 @@ class BoundsVisualizer: Entity {
   
   
   
-  @MainActor required convenience init() {
+  @MainActor required convenience public init() {
     self.init(bounds: [1,1,1])
   }
 }
