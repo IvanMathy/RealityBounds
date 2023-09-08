@@ -1,3 +1,5 @@
+<hr/>
+
 <p align="center">
 
   <img src="docs/logo.svg?raw=true" width="663" alt="logo">
@@ -13,7 +15,7 @@ Hello my name is Ivan and for the past week I have been fighting and trying to u
   <img src="docs/hero.png?raw=true" width="663" alt="screenshot">
 </p>
 
-After a few days of placing colorful spheres in random places and troubleshooting, I arrived at the conclusion that volumes in VisionOS previews are, in their current form, broken. The size of the clipped content is seemingly arbitrary and so is its position. I opened a radar (FB13129449) to hopfully getting it resolved, but it also means that for now, we have to stick to the fully-fledge simulator.
+After a few days of placing colorful spheres in random places and troubleshooting, I arrived at the conclusion that volumes in visionOS previews are, in their current form, broken. The size of the clipped content is seemingly arbitrary and so is its position. I opened a radar (FB13129449) to hopfully getting it resolved, but it also means that for now, we have to stick to the fully-fledge simulator.
 
 Without the ability to do some quick reload and tweaks, answering the "Is my content in the righy spot?" question become a whole lot difficult. While Xcode does provide a Boundong box debug visualization, it is not very helful considering it shows the models and OS elements, but not the one thing that is truly useful: the bounds of the volume itself. Furthermore, if you had the audacity to start your application in a way that isn't aligned with the original view direction, the bounding box aren't aligned with your volume's origin.
 
@@ -86,4 +88,4 @@ Because previews clip the content differently than volumetric windows and I cann
 
 ## Anything else?
 
-You should [follow me on Mastodon](https://mastodon.social/@ivanmathy) because that is where I primarily post about VisionOS development. I am also on the other platforms under the @OKatBest handle.
+You should [follow me on Mastodon](https://mastodon.social/@ivanmathy) because that is where I primarily post about visionOS development. I am also on the other platforms under the [@OKatBest](https://twitter.com/OKatBest) handle.
