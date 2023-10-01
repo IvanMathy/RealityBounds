@@ -15,7 +15,10 @@ Hello my name is Ivan and for the past week I have been fighting and trying to u
   <img src="docs/hero.png?raw=true" width="663" alt="screenshot">
 </p>
 
-After a few days of placing colorful spheres in random places and troubleshooting, I arrived at the conclusion that volumes in visionOS previews are, in their current form, broken. The size of the clipped content is seemingly arbitrary and so is its position. I opened a radar (FB13129449) to hopefully get it resolved, but it also means that for now, we have to stick to the fully-fledged simulator.
+~After a few days of placing colorful spheres in random places and troubleshooting, I arrived at the conclusion that volumes in visionOS previews are, in their current form, broken. The size of the clipped content is seemingly arbitrary and so is its position. I opened a radar (FB13129449) to hopefully get it resolved, but it also means that for now, we have to stick to the fully-fledged simulator.~ 
+
+> [!NOTE]  
+> *Update:* I have heard back form Apple, previews need to be sized in centimeters. See below for info. This repo is still very useful with that extra knowledge!
 
 Without the ability to do some quick reload and tweaks, answering the "Is my content in the right spot?" question becomes a whole lot more difficult. While Xcode does provide a Bounding box debug visualization, it is not very helful considering it shows the models and OS elements, but not the one thing that is truly useful: the bounds of the volume itself. Furthermore, if you had the audacity to start your application in a way that isn't aligned with the original view direction, the bounding box aren't aligned with your volume's origin but rather the ARKit's world origin (or so I assume).
 
@@ -82,7 +85,17 @@ content.add(BoundsVisualizer(bounds: [1,1,1], material: mat))
 
 ## Why does it not work in Xcode previews?
 
-Because previews clip the content differently than volumetric windows and I cannot for the life of me figure out how to get it to work properly. I have opened a Radar about it as previously mentioned. 
+~Because previews clip the content differently than volumetric windows and I cannot for the life of me figure out how to get it to work properly. I have opened a Radar about it as previously mentioned.~
+
+You'll need to set your preview to be the correct size:
+
+```swift
+#Preview(windowStyle: .volumetric, traits: .fixedLayout(width: 1000, height: 1000, depth: 1000)) {
+    ContentView()
+}
+```
+
+Turns out, `fixedLayout` expects your size in centimeters, not in points nor meters for some reason.
 
 ## Anything else?
 
